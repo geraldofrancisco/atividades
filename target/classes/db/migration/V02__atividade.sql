@@ -1,5 +1,0 @@
-CREATE TABLE atividade(
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    esforco INTEGER NOT NULL
-)
