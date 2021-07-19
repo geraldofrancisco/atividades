@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,8 +23,14 @@ import java.time.LocalDateTime;
 @Table(name = "movimento")
 public class Movimento implements Serializable {
     @Id
-    @EmbeddedId
-    private MovimentoId id;
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "id_pessoa", nullable = false)
+    private Long pessoaId;
+
+    @Column(name = "id_atividade", nullable = false)
+    private Long atividadeId;
 
     private LocalDateTime inicio;
 
