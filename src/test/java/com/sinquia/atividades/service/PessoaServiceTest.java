@@ -2,6 +2,8 @@ package com.sinquia.atividades.service;
 
 import com.sinquia.atividades.dto.PessoaDTO;
 
+import com.sinquia.atividades.repository.PessoaRepository;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,11 +22,19 @@ public class PessoaServiceTest {
     @Autowired
     PessoaService service;
 
+    @Autowired
+    PessoaRepository repository;
+
     @Test
     public void criarPessoaTest() {
         PessoaDTO pessoa = new PessoaDTO(1L, "Geraldo", BigDecimal.TEN);
         pessoa = this.service.adicionarPessoa(pessoa);
 
         Assert.assertTrue(pessoa.getId() != null);
+    }
+
+    @After
+    public void apagaPessoasCriadas() {
+        this.repository.deleteAll();
     }
 }
