@@ -18,7 +18,9 @@ public class MovimentoService {
     MovimentoMapper mapper;
 
 
-    public MovimentoDTO criarMovimento(MovimentoDTO movimento) {
-        return null;
+    public MovimentoDTO criarMovimento(MovimentoDTO dto) {
+        Movimento movimento = this.mapper.toEntity(dto);
+        movimento = this.repository.save(movimento);
+        return this.mapper.toDto(movimento);
     }
 }

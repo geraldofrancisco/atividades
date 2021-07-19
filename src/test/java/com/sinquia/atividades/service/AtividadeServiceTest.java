@@ -31,7 +31,7 @@ public class AtividadeServiceTest {
         Assert.assertTrue(atividade.getId() != null);
     }
 
-    @AfterAll
+    @After
     public void apagaAtividadesCriadas() {
         this.repository.deleteAll();
     }

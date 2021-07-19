@@ -34,7 +34,7 @@ public class PessoaServiceTest {
         Assert.assertTrue(pessoa.getId() != null);
     }
 
-    @AfterAll
+    @After
     public void apagaPessoasCriadas() {
         this.repository.deleteAll();
     }

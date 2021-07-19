@@ -55,10 +55,10 @@ public class MovimentoServiceTest {
         Assert.assertTrue(movimento.getId() != null);
     }
 
-    @AfterAll
+    @After
     public void apagaMovimentosCriados() {
+        this.repository.deleteAll();
         this.pessoaRepository.deleteAll();
         this.atividadeRepository.deleteAll();
-        this.repository.deleteAll();
     }
 }
