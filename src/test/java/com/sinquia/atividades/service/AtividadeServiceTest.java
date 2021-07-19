@@ -20,7 +20,7 @@ public class AtividadeServiceTest {
 
     @Test
     public void criarAtividadeTest() {
-        AtividadeDTO atividade = new AtividadeDTO(null,"atividade 1", 10);
+        AtividadeDTO atividade = new AtividadeDTO(1L,"atividade 1", 10);
         atividade = this.service.criarAtividade(atividade);
         Assert.assertTrue(atividade.getId() != null);
     }

@@ -22,7 +22,7 @@ public class PessoaServiceTest {
 
     @Test
     public void criarPessoaTest() {
-        PessoaDTO pessoa = new PessoaDTO(null, "Geraldo", BigDecimal.TEN);
+        PessoaDTO pessoa = new PessoaDTO(1L, "Geraldo", BigDecimal.TEN);
         pessoa = this.service.adicionarPessoa(pessoa);
 
         Assert.assertTrue(pessoa.getId() != null);

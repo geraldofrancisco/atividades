@@ -18,7 +18,9 @@ public class AtividadeService {
     @Autowired
     AtividadeMapper mapper;
 
-    public AtividadeDTO criarAtividade(AtividadeDTO atividade) {
-        return null;
+    public AtividadeDTO criarAtividade(AtividadeDTO dto) {
+        Atividade atividade = this.mapper.toEntity(dto);
+        atividade = this.repository.save(atividade);
+        return this.mapper.toDto(atividade);
     }
 }
