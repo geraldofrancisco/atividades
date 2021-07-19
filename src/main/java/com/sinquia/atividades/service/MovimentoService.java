@@ -1,6 +1,7 @@
 package com.sinquia.atividades.service;
 
 import com.sinquia.atividades.dto.MovimentoDTO;
+import com.sinquia.atividades.exception.RegraNegocioException;
 import com.sinquia.atividades.mapper.MovimentoMapper;
 import com.sinquia.atividades.model.Movimento;
 import com.sinquia.atividades.repository.MovimentoRepository;
@@ -18,10 +19,9 @@ public class MovimentoService {
 
 
     public MovimentoDTO criarMovimento(MovimentoDTO dto) {
-        if(existeMovimentoEmExecucao()) {
-            //lança exceção
-            System.out.println("entrou");
-        }
+        if(this.existeMovimentoEmExecucao()) 
+            throw new RegraNegocioException("Existe atividades em execução");
+
         Movimento movimento = this.mapper.toEntity(dto);
         movimento = this.repository.save(movimento);
         return this.mapper.toDto(movimento);
