@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Data
 @EqualsAndHashCode(of = "id")
@@ -28,5 +29,5 @@ public class Pessoa implements Serializable {
     private String nome;
 
     @Column(name = "indice_produtividade", nullable = false)
-    private Integer indiceProdutividade;
+    private BigDecimal indiceProdutividade;
 }
