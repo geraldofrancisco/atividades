@@ -6,6 +6,7 @@ import com.sinquia.atividades.repository.PessoaRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,7 +34,7 @@ public class PessoaServiceTest {
         Assert.assertTrue(pessoa.getId() != null);
     }
 
-    @After
+    @AfterAll
     public void apagaPessoasCriadas() {
         this.repository.deleteAll();
     }

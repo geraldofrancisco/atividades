@@ -6,6 +6,7 @@ import com.sinquia.atividades.repository.AtividadeRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,13 +25,13 @@ public class AtividadeServiceTest {
     AtividadeRepository repository;
 
     @Test
-    public void criarAtividadeTest() {
+    public void criarMovimentoTest() {
         AtividadeDTO atividade = new AtividadeDTO(1L,"atividade 1", 10);
         atividade = this.service.criarAtividade(atividade);
         Assert.assertTrue(atividade.getId() != null);
     }
 
-    @After
+    @AfterAll
     public void apagaAtividadesCriadas() {
         this.repository.deleteAll();
     }
