@@ -1,6 +1,5 @@
 package com.sinquia.atividades.service;
 
-import com.sinquia.atividades.dto.AtividadeDTO;
 import com.sinquia.atividades.dto.MovimentoDTO;
 import com.sinquia.atividades.mapper.MovimentoMapper;
 import com.sinquia.atividades.model.Movimento;
@@ -19,8 +18,17 @@ public class MovimentoService {
 
 
     public MovimentoDTO criarMovimento(MovimentoDTO dto) {
+        if(existeMovimentoEmExecucao()) {
+            //lança exceção
+            System.out.println("entrou");
+        }
         Movimento movimento = this.mapper.toEntity(dto);
         movimento = this.repository.save(movimento);
         return this.mapper.toDto(movimento);
+    }
+
+    public boolean existeMovimentoEmExecucao() {
+        Long quantidadeEmExecucao = this.repository.countByInicioIsNotNullAndConcluido(false);
+        return quantidadeEmExecucao > 0L;
     }
 }
